@@ -44,6 +44,12 @@ function buttons(){
   rect(windowWidth/2+410, windowHeight/2-180, 280, 100);
   rect(windowWidth/2+410, windowHeight/2-60, 280, 100);
   rect(windowWidth/2+410, windowHeight/2+60, 280, 100);
+
+  textAlign(CENTER);
+  fill("white");
+  text("PLAY", windowWidth/2+550, windowHeight/2-125);
+  //middle button text
+  text("REFERENCES", windowWidth/2+550, windowHeight/2+115);
 }
 
 function introduction(){
@@ -51,4 +57,6 @@ function introduction(){
   fill(12, 28, 21);
   rect(25, windowHeight-200, windowWidth-50, 100);
   // (78, 123, 104)
+  textAlign(CORNER);
+  text("Today is October 24th, 1929.", 50, windowHeight-100);
 }
