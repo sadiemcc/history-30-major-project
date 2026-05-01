@@ -26,6 +26,14 @@ function mouseClicked(){
     clear();
     introduction();
   }
+  if (mouseX < windowWidth/2+690 && mouseX > windowWidth/2+410 && mouseY < windowHeight/2+40 && mouseY > windowHeight/2-60 && gameState === "title"){
+    //middle button
+  }
+  if (mouseX < windowWidth/2+690 && mouseX > windowWidth/2+410 && mouseY < windowHeight/2+160 && mouseY > windowHeight/2+60 && gameState === "title"){
+    gameState = "references";
+    clear();
+    references();
+  }
 }
 
 function buttons(){
@@ -42,5 +50,5 @@ function introduction(){
   background(41, 96, 72);
   fill(12, 28, 21);
   rect(25, windowHeight-200, windowWidth-50, 100);
-  // text color (78, 123, 104)
+  // (78, 123, 104)
 }
