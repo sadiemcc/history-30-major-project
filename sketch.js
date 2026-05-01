@@ -4,6 +4,12 @@
 
 const BORDER_HEIGHT = 75
 let gameState = "title";
+let font;
+let introWords = ["Today is October 24th, 1929.", 'The end of WW1 created the "Roaring Twenties"']
+
+function preload(){
+  font = loadFont("OldNewspaperTypes.ttf");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -56,7 +62,9 @@ function introduction(){
   background(41, 96, 72);
   fill(12, 28, 21);
   rect(25, windowHeight-200, windowWidth-50, 100);
-  // (78, 123, 104)
-  textAlign(CORNER);
-  text("Today is October 24th, 1929.", 50, windowHeight-100);
+  fill(78, 123, 104);
+  textSize(40);
+  textFont(font);
+  textAlign(LEFT, TOP);
+  text(introWords[0], 50, windowHeight-175);
 }
