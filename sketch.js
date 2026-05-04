@@ -5,7 +5,8 @@
 const BORDER_HEIGHT = 75
 let gameState = "title";
 let font;
-let introWords = ["Today is October 24th, 1929.", 'The end of WW1 created the "Roaring Twenties"']
+let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because you live in *CHOOSE PLACE*"];
+let n = 0;
 
 function preload(){
   font = loadFont("OldNewspaperTypes.ttf");
@@ -18,19 +19,26 @@ function setup() {
 }
 
 function draw() {
-  fill(6, 14, 11);
-  rect(0, 0, windowWidth, BORDER_HEIGHT);
-  rect(0, windowHeight-BORDER_HEIGHT, windowWidth, BORDER_HEIGHT);
+  borders();
   if (gameState === "title"){
     buttons();
   }
+  if (gameState === "intro"){
+    introduction();
+    borders();
+  }
+}
+
+function borders(){
+  fill(6, 14, 11);
+  rect(0, 0, windowWidth, BORDER_HEIGHT);
+  rect(0, windowHeight-BORDER_HEIGHT, windowWidth, BORDER_HEIGHT);
 }
 
 function mouseClicked(){
   if (mouseX < windowWidth/2+690 && mouseX > windowWidth/2+410 && mouseY < windowHeight/2-80 && mouseY > windowHeight/2-180 && gameState === "title"){
     gameState = "intro";
     clear();
-    introduction();
   }
   if (mouseX < windowWidth/2+690 && mouseX > windowWidth/2+410 && mouseY < windowHeight/2+40 && mouseY > windowHeight/2-60 && gameState === "title"){
     //middle button
@@ -39,6 +47,9 @@ function mouseClicked(){
     gameState = "references";
     clear();
     references();
+  }
+  if (gameState === "intro"){
+    n += 1;
   }
 }
 
@@ -66,5 +77,5 @@ function introduction(){
   textSize(40);
   textFont(font);
   textAlign(LEFT, TOP);
-  text(introWords[0], 50, windowHeight-175);
+  text(introWords[n-1], 50, windowHeight-175);
 }
