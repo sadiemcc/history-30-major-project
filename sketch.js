@@ -5,14 +5,14 @@
 const BORDER_HEIGHT = 75
 let gameState = "title";
 let font;
-let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because you live in *CHOOSE PLACE*"];
+let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because you live in..."];
 let n = 0;
-let title;
+let titleCard;
 let prairieButton;
 let bcButton;
 let maritimeButton;
 let ontqueButton;
-let areYouSure = "";
+let provincesDone = [];
 
 function preload(){
   font = loadFont("OldNewspaperTypes.ttf");
@@ -21,7 +21,7 @@ function preload(){
   bcButton = loadImage("bc.png");
   ontqueButton = loadImage("ontarioquebec.png");
   maritimeButton = loadImage("maritimes.png");
-  title = createImg("title-ezgif.com-gif-maker.gif");
+  titleCard = createImg("title-ezgif.com-resize.gif");
 }
 
 function setup() {
@@ -32,11 +32,11 @@ function setup() {
 
 function draw() {
   borders();
-  title.position(100, 100);
   if (gameState === "title"){
     buttons();
   }
   if (gameState === "intro"){
+    titleCard.hide();
     introduction();
     borders();
   }
@@ -89,6 +89,8 @@ function mouseClicked(){
 }
 
 function buttons(){
+  titleCard.position(100, 100);
+
   noStroke()
   fill(219, 190, 156);
   rect(windowWidth/2+400, windowHeight/2-200, 300, 400);
@@ -126,7 +128,7 @@ function birthPlace(){
 
 function provinceIntro(){
   clear();
-  background(41, 96, 72);
+  background(27, 62, 47);
   borders();
   fill(12, 28, 21);
   rect(25, windowHeight-200, windowWidth-50, 100);
@@ -134,17 +136,39 @@ function provinceIntro(){
   if (gameState === "BC"){
     image(bcButton, windowWidth/2-850, windowHeight/2-250);
     text("That's right, you live in British Columbia.", 50, windowHeight-175);
+    BCPath();
   }
   if (gameState === "prairies"){
     image(prairieButton, windowWidth/2-400, windowHeight/2-250);
     text("That's right, you live in the Prairies.", 50, windowHeight-175);
+    prairiesPath();
   }
   if (gameState === "ontarioquebec"){
     image(ontqueButton, windowWidth/2+50, windowHeight/2-250);
     text("That's right, you live in Ontario/Quebec.", 50, windowHeight-175);
+    ontarioQuebecPath();
   }
   if (gameState === "maritimes"){
     image(maritimeButton, windowWidth/2+500, windowHeight/2-250);
     text("That's right, you live in the Maritimes.", 50, windowHeight-175);
+    maritimesPath();
   }
+}
+
+function BCPath(){
+  if (provincesDone[0] !== "BC"){
+    provincesDone.push("BC");
+  }
+}
+
+function prairiesPath(){
+  //
+}
+
+function ontarioQuebecPath(){
+  //
+}
+
+function maritimesPath(){
+  //
 }
