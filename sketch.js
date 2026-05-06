@@ -13,6 +13,7 @@ let bcButton;
 let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
+let prairieWords = ["You're a farmer.", "Recently, you've been experiencing the weather is being quite abnormal."];
 
 function preload(){
   font = loadFont("OldNewspaperTypes.ttf");
@@ -140,7 +141,7 @@ function provinceIntro(){
   }
   if (gameState === "prairies"){
     image(prairieButton, windowWidth/2-400, windowHeight/2-250);
-    text("That's right, you live in the Prairies.", 50, windowHeight-175);
+    text("That's right, you live in the Prairies. Saskatchewan, specifically.", 50, windowHeight-175);
     prairiesPath();
   }
   if (gameState === "ontarioquebec"){
@@ -156,19 +157,25 @@ function provinceIntro(){
 }
 
 function BCPath(){
-  if (provincesDone[0] !== "BC"){
+  if (provincesDone[0] !== "BC" && provincesDone[1] !== "BC" && provincesDone[2] !== "BC"){
     provincesDone.push("BC");
   }
 }
 
 function prairiesPath(){
-  //
+  if (provincesDone[0] !== "prairies" && provincesDone[1] !== "prairies" && provincesDone[2] !== "prairies"){
+    provincesDone.push("prairies");
+  }
 }
 
 function ontarioQuebecPath(){
-  //
+  if (provincesDone[0] !== "ontarioquebec" && provincesDone[1] !== "ontarioquebec" && provincesDone[2] !== "ontarioquebec"){
+    provincesDone.push("ontarioquebec");
+  }
 }
 
 function maritimesPath(){
-  //
+  if (provincesDone[0] !== "maritimes" && provincesDone[1] !== "maritimes" && provincesDone[2] !== "maritimes"){
+    provincesDone.push("maritimes");
+  }
 }
