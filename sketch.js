@@ -7,6 +7,7 @@ let gameState = "title";
 let font;
 let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because you live in..."];
 let n = 0;
+let p = 0;
 let titleCard;
 let prairieButton;
 let bcButton;
@@ -73,6 +74,12 @@ function mouseClicked(){
     if (n === introWords.length+1){
       gameState = "chooseProvince";
       borders();
+    }
+  }
+  if (gameState === "prairies"){
+    p += 1;
+    if (p === prairieWords.length+1){
+      gameState = "choose";
     }
   }
   if (mouseX < windowWidth/2-550 && mouseX > windowWidth/2-850 && mouseY < windowHeight/2+150 && mouseY > windowHeight/2-250 && gameState === "chooseProvince"){
@@ -166,6 +173,7 @@ function prairiesPath(){
   if (provincesDone[0] !== "prairies" && provincesDone[1] !== "prairies" && provincesDone[2] !== "prairies"){
     provincesDone.push("prairies");
   }
+  text(prairieWords[p-1], 50, windowHeight-175);
 }
 
 function ontarioQuebecPath(){
