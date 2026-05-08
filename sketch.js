@@ -2,6 +2,9 @@
 // History 30 Project
 // Start date = April 23rd, 2026
 
+//windowWidth 1365
+//windowHeight 957
+
 const BORDER_HEIGHT = 75
 let gameState = "title";
 let font;
