@@ -8,7 +8,7 @@
 const BORDER_HEIGHT = 75
 let gameState = "title";
 let font;
-let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because you live in..."];
+let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because today is the start of the Great Depression.", "You're affected because you live in..."];
 let n = 0;
 let p = 0;
 let titleCard;
@@ -17,7 +17,7 @@ let bcButton;
 let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
-let prairieWords = ["You're a farmer.", "Recently, you've been experiencing the weather is being quite abnormal."];
+let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years."];
 
 function preload(){
   font = loadFont("OldNewspaperTypes.ttf");
@@ -48,8 +48,11 @@ function draw() {
   if (gameState === "chooseProvince"){
     birthPlace();
   }
-  if (gameState === "BC" || gameState === "prairies" || gameState === "ontarioquebec" || gameState === "maritimes"){
+  if (gameState === "BC" || gameState === "ontarioquebec" || gameState === "maritimes"){
     provinceIntro();
+  }
+  if (gameState === "prairies"){
+    prairiesIntro();
   }
 }
 
@@ -149,11 +152,7 @@ function provinceIntro(){
     text("That's right, you live in British Columbia.", 50, windowHeight-175);
     BCPath();
   }
-  if (gameState === "prairies"){
-    image(prairieButton, windowWidth/2-400, windowHeight/2-250);
-    text("That's right, you live in the Prairies. Saskatchewan, specifically.", 50, windowHeight-175);
-    prairiesPath();
-  }
+
   if (gameState === "ontarioquebec"){
     image(ontqueButton, windowWidth/2+50, windowHeight/2-250);
     text("That's right, you live in Ontario/Quebec.", 50, windowHeight-175);
@@ -166,17 +165,26 @@ function provinceIntro(){
   }
 }
 
+function prairiesIntro(){
+  if (provincesDone[0] !== "prairies" && provincesDone[1] !== "prairies" && provincesDone[2] !== "prairies"){
+    provincesDone.push("prairies");
+  }
+  clear();
+  background(27, 62, 47);
+  fill(12, 28, 21);
+  borders();
+  if (p < prairieWords.length){
+    rect(25, windowHeight-200, windowWidth-50, 100);
+    fill(78, 123, 104);
+    text(prairieWords[p], 50, windowHeight-175);
+    image(prairieButton, windowWidth/2-400, windowHeight/2-250);
+  }
+}
+
 function BCPath(){
   if (provincesDone[0] !== "BC" && provincesDone[1] !== "BC" && provincesDone[2] !== "BC"){
     provincesDone.push("BC");
   }
-}
-
-function prairiesPath(){
-  if (provincesDone[0] !== "prairies" && provincesDone[1] !== "prairies" && provincesDone[2] !== "prairies"){
-    provincesDone.push("prairies");
-  }
-  text(prairieWords[p-1], 50, windowHeight-175);
 }
 
 function ontarioQuebecPath(){
