@@ -11,13 +11,19 @@ let font;
 let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because today is the start of the Great Depression.", "You're affected because you live in..."];
 let n = 0;
 let p = 0;
+let b = 0;
+let m = 0;
+let o = 0;
 let titleCard;
 let prairieButton;
 let bcButton;
 let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
-let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years."];
+let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
+let bcWords = [];
+let maritimeWords = [];
+let ontqueWords = ["That's right, you live in Ontario.", "Quebec is a part of this catagory, but we'll focus on them later.", "You're a single man and you're unemployed.", "You're broke."];
 
 function preload(){
   font = loadFont("OldNewspaperTypes.ttf");
@@ -33,6 +39,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   gameState = "title";
   background(27, 62, 47);
+  console.log(windowWidth);
+  console.log(windowHeight);
 }
 
 function draw() {
@@ -48,8 +56,11 @@ function draw() {
   if (gameState === "chooseProvince"){
     birthPlace();
   }
-  if (gameState === "BC" || gameState === "ontarioquebec" || gameState === "maritimes"){
+  if (gameState === "BC" || gameState === "maritimes"){
     provinceIntro();
+  }
+  if (gameState === "ontarioquebec"){
+    ontarioQuebecIntro();
   }
   if (gameState === "prairies"){
     prairiesIntro();
@@ -85,6 +96,12 @@ function mouseClicked(){
   if (gameState === "prairies"){
     p += 1;
     if (p === prairieWords.length+1){
+      gameState = "choose";
+    }
+  }
+  if (gameState === "ontarioquebec"){
+    o += 1;
+    if (o === ontqueWords.length+1){
       gameState = "choose";
     }
   }
@@ -187,9 +204,19 @@ function BCPath(){
   }
 }
 
-function ontarioQuebecPath(){
+function ontarioQuebecIntro(){
   if (provincesDone[0] !== "ontarioquebec" && provincesDone[1] !== "ontarioquebec" && provincesDone[2] !== "ontarioquebec"){
     provincesDone.push("ontarioquebec");
+  }
+  clear();
+  background(27, 62, 47);
+  fill(12, 28, 21);
+  borders();
+  if (o < ontqueWords.length){
+    rect(25, windowHeight-200, windowWidth-50, 100);
+    fill(78, 123, 104);
+    text(ontqueWords[o], 50, windowHeight-175);
+    image(ontqueButton, windowWidth/2+50, windowHeight/2-250);
   }
 }
 
