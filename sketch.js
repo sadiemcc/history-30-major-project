@@ -119,6 +119,39 @@ function mouseClicked(){
   if (mouseX < windowWidth/2+800 && mouseX > windowWidth/2+500 && mouseY < windowHeight/2+150 && mouseY > windowHeight/2-250 && gameState === "chooseProvince"){
     gameState = "maritimes";
   }
+
+  // 1930
+  if (mouseX < 500 && mouseX > 250 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1931
+  if (mouseX < 890 && mouseX > 640 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1932
+  if (mouseX < 1280 && mouseX > 1030 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1933 to 1935
+  if (mouseX < 1670 && mouseX > 1420 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1936
+  if (mouseX < 500 && mouseX > 250 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1937
+  if (mouseX < 890 && mouseX > 640 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1938
+  if (mouseX < 1280 && mouseX > 1030 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
+    clear();
+  }
+  // 1939
+  if (mouseX < 1670 && mouseX > 1420 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
+    clear();
+  }
 }
 
 function buttons(){
@@ -200,10 +233,15 @@ function prairiesIntro(){
   }
   if (p === prairieWords.length){
     gameState = "prairieInteract";
-    rect(300, 175, 250, 250);
-    rect(windowWidth/2-300, 175, 250, 250);
-    rect(windowWidth/2+100, 175, 250, 250);
-    // rect(200, 175, 250, 250);
+    rect(250, 175, 250, 250);
+    rect(640, 175, 250, 250);
+    rect(1030, 175, 250, 250);
+    rect(1420, 175, 250, 250);
+    
+    rect(250, 532, 250, 250);
+    rect(640, 532, 250, 250);
+    rect(1030, 532, 250, 250);
+    rect(1420, 532, 250, 250);
   }
 }
 
