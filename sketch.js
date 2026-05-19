@@ -5,6 +5,8 @@
 //windowWidth 1365
 //windowHeight 957
 
+const windowHeight = 957;
+const windowWidth = 1920;
 const BORDER_HEIGHT = 75
 let gameState = "title";
 let font;
@@ -195,6 +197,13 @@ function prairiesIntro(){
     fill(78, 123, 104);
     text(prairieWords[p], 50, windowHeight-175);
     image(prairieButton, windowWidth/2-400, windowHeight/2-250);
+  }
+  if (p === prairieWords.length){
+    gameState = "prairieInteract";
+    rect(300, 175, 250, 250);
+    rect(windowWidth/2-300, 175, 250, 250);
+    rect(windowWidth/2+100, 175, 250, 250);
+    // rect(200, 175, 250, 250);
   }
 }
 
