@@ -22,7 +22,7 @@ let bcButton;
 let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
-let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
+let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "In 1928, the net farming income was $363 million dollars.", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
 let bcWords = [];
 let maritimeWords = [];
 let ontqueWords = ["That's right, you live in Ontario.", "Quebec is a part of this catagory, but we'll focus on them later.", "You're a single man and you're unemployed.", "You're broke."];
@@ -120,36 +120,14 @@ function mouseClicked(){
     gameState = "maritimes";
   }
 
-  // 1930
   if (mouseX < 500 && mouseX > 250 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
-    clear();
+    gameState = "1930"
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
   }
-  // 1931
-  if (mouseX < 890 && mouseX > 640 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
-    clear();
-  }
-  // 1932
-  if (mouseX < 1280 && mouseX > 1030 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
-    clear();
-  }
-  // 1933 to 1935
-  if (mouseX < 1670 && mouseX > 1420 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
-    clear();
-  }
-  // 1936
-  if (mouseX < 500 && mouseX > 250 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
-    clear();
-  }
-  // 1937
-  if (mouseX < 890 && mouseX > 640 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
-    clear();
-  }
-  // 1938
-  if (mouseX < 1280 && mouseX > 1030 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
-    clear();
-  }
-  // 1939
-  if (mouseX < 1670 && mouseX > 1420 && mouseY < 782 && mouseY > 532 && gameState === "prairieInteract"){
+  if(mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1930"){
+    gameState = "1931";
     clear();
   }
 }
