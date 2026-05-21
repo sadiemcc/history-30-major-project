@@ -16,6 +16,7 @@ let p = 0;
 let b = 0;
 let m = 0;
 let o = 0;
+let y = 0;
 let titleCard;
 let prairieButton;
 let bcButton;
@@ -23,9 +24,10 @@ let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
 let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "In 1928, the net farming income was $363 million dollars.", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
-let bcWords = [];
-let maritimeWords = [];
-let ontqueWords = ["That's right, you live in Ontario.", "Quebec is a part of this catagory, but we'll focus on them later.", "You're a single man and you're unemployed.", "You're broke."];
+let yearWords = ["This year, the winter has been terrible.", "1931", "1932", "1933 to 1935", "1936", "1937", "1938", "1939"];
+// let bcWords = [];
+// let maritimeWords = [];
+// let ontqueWords = ["That's right, you live in Ontario.", "Quebec is a part of this catagory, but we'll focus on them later.", "You're a single man and you're unemployed.", "You're broke."];
 
 function preload(){
   font = loadFont("OldNewspaperTypes.ttf");
@@ -125,11 +127,20 @@ function mouseClicked(){
     rect(250, 125, windowWidth-500, windowHeight-250);
     fill("white");
     rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[y], 300, windowHeight-200);
   }
-  if(mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1930"){
+  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75){
+    yearWords.pop(0);
+    y += 1;
     gameState = "1931";
-    clear();
+    fill("white");
+    rect(175, windowHeight/2-75, 150, 150);
+    text(yearWords[y], 300, windowHeight-200);
   }
+  //BACK BUTTON
+  // if (mouseX < 325 && mouseX > 175 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1931"){
+  //   //
+  // }
 }
 
 function buttons(){
@@ -223,30 +234,30 @@ function prairiesIntro(){
   }
 }
 
-function BCPath(){
-  if (provincesDone[0] !== "BC" && provincesDone[1] !== "BC" && provincesDone[2] !== "BC"){
-    provincesDone.push("BC");
-  }
-}
+// function BCPath(){
+//   if (provincesDone[0] !== "BC" && provincesDone[1] !== "BC" && provincesDone[2] !== "BC"){
+//     provincesDone.push("BC");
+//   }
+// }
 
-function ontarioQuebecIntro(){
-  if (provincesDone[0] !== "ontarioquebec" && provincesDone[1] !== "ontarioquebec" && provincesDone[2] !== "ontarioquebec"){
-    provincesDone.push("ontarioquebec");
-  }
-  clear();
-  background(27, 62, 47);
-  fill(12, 28, 21);
-  borders();
-  if (o < ontqueWords.length){
-    rect(25, windowHeight-200, windowWidth-50, 100);
-    fill(78, 123, 104);
-    text(ontqueWords[o], 50, windowHeight-175);
-    image(ontqueButton, windowWidth/2+50, windowHeight/2-250);
-  }
-}
+// function ontarioQuebecIntro(){
+//   if (provincesDone[0] !== "ontarioquebec" && provincesDone[1] !== "ontarioquebec" && provincesDone[2] !== "ontarioquebec"){
+//     provincesDone.push("ontarioquebec");
+//   }
+//   clear();
+//   background(27, 62, 47);
+//   fill(12, 28, 21);
+//   borders();
+//   if (o < ontqueWords.length){
+//     rect(25, windowHeight-200, windowWidth-50, 100);
+//     fill(78, 123, 104);
+//     text(ontqueWords[o], 50, windowHeight-175);
+//     image(ontqueButton, windowWidth/2+50, windowHeight/2-250);
+//   }
+// }
 
-function maritimesPath(){
-  if (provincesDone[0] !== "maritimes" && provincesDone[1] !== "maritimes" && provincesDone[2] !== "maritimes"){
-    provincesDone.push("maritimes");
-  }
-}
+// function maritimesPath(){
+//   if (provincesDone[0] !== "maritimes" && provincesDone[1] !== "maritimes" && provincesDone[2] !== "maritimes"){
+//     provincesDone.push("maritimes");
+//   }
+// }
