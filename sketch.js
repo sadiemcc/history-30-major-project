@@ -9,6 +9,7 @@ const windowHeight = 957;
 const windowWidth = 1920;
 const BORDER_HEIGHT = 75
 let gameState = "title";
+let wordState = "";
 let font;
 let introWords = ["Today is October 29th, 1929.", "Today is the day that the Wall Street stock market will crash.", "Although you live in Canada, this fact still affects you greatly.", "Why?", "Well, because today is the start of the Great Depression.", "You're affected because you live in..."];
 let n = 0;
@@ -37,6 +38,7 @@ function preload(){
   ontqueButton = loadImage("ontarioquebec.png");
   maritimeButton = loadImage("maritimes.png");
   titleCard = createImg("title-ezgif.com-resize.gif");
+  playImage = loadImage("PLAY.png");
 }
 
 function setup() {
@@ -126,42 +128,26 @@ function mouseClicked(){
   }
 
   if (mouseX < 500 && mouseX > 250 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
-    gameState = "1930"
     rect(250, 125, windowWidth-500, windowHeight-250);
     fill("white");
-    rect(1595, windowHeight/2-75, 150, 150);
     text("This year, the winter has been terrible.", 300, windowHeight-200);
+    rect(1595, windowHeight/2-75, 150, 150);
+    wordState = "cycling";
   }
-  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75){
+  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && wordState === "cycling"){
+    gameState = "1930";
     clear();
     background(27, 62, 47);
     fill(12, 28, 21);
     borders();
     y += 1;
-    rect(175, windowHeight/2-75, 150, 150);
+    fill("white");
   }
-  //BACK BUTTON
-  // if (mouseX < 325 && mouseX > 175 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1931"){
-  //   //
-  // }
 }
 
 function buttons(){
   titleCard.position(100, 100);
-
-  noStroke()
-  fill(219, 190, 156);
-  rect(windowWidth/2+400, windowHeight/2-200, 300, 400);
-  fill("black");
-  rect(windowWidth/2+410, windowHeight/2-180, 280, 100);
-  rect(windowWidth/2+410, windowHeight/2-60, 280, 100);
-  rect(windowWidth/2+410, windowHeight/2+60, 280, 100);
-
-  textAlign(CENTER);
-  fill("white");
-  text("PLAY", windowWidth/2+550, windowHeight/2-125);
-  //middle button text
-  text("REFERENCES", windowWidth/2+550, windowHeight/2+115);
+  image(playImage, windowWidth/2+400, windowHeight/2-200);
 }
 
 function introduction(){
@@ -238,6 +224,11 @@ function prairiesIntro(){
 }
 
 function prairieYearWords(){
+  rect(250, 125, windowWidth-500, windowHeight-250);
   fill("white");
+  rect(1595, windowHeight/2-75, 150, 150);
   text(yearWords[y-1], 300, windowHeight-200);
+  if (y === yearWords.length+1){
+    clear();
+  }
 }
