@@ -25,7 +25,7 @@ let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
 let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "In 1928, the net farming income was $363 million dollars.", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
-let yearWords = ["1931. This year's winter was dry. Once the spring came, the droughts", "were unbearable. An abundance of dust storms ruined our land. The",  "summer was hot and dry with no rain. Our crops couldn't stand it. In", "addition to that, our lovely neighbours are moving away. I read in the", "papers that more and more folk are moving out of the prairies.", "1932", "1933 to 1935", "1936", "1937", "1938", "1939"];
+let yearWords = ["1931. This year's winter was dry. Once the spring came, the droughts", "were unbearable. An abundance of dust storms ruined our land. The",  "summer was hot and dry with no rain. Our crops couldn't stand it. In", "addition to that, our lovely neighbours are moving away. I read in the", "papers that more and more folk are moving out of the prairies.", "1932. We had the worst infestation of grasshoppers I've ever seen! My papa told me that this is the worst grasshopper plague he's seen in over 50 years. Our wheat is selling for extremely low, only 26¢ per bushel.", "1933 to 1935", "1936", "1937", "1938", "1939"];
 // let bcWords = [];
 // let maritimeWords = [];
 // let ontqueWords = ["That's right, you live in Ontario.", "Quebec is a part of this catagory, but we'll focus on them later.", "You're a single man and you're unemployed.", "You're broke."];
@@ -71,7 +71,7 @@ function draw() {
   if (gameState === "prairies"){
     prairiesIntro();
   }
-  if (gameState === "1930"){
+  if (gameState === "1931"){
     prairieYearWords();
   }
 }
@@ -128,6 +128,7 @@ function mouseClicked(){
   }
 
   if (mouseX < 500 && mouseX > 250 && mouseY < 425 && mouseY > 175 && gameState === "prairieInteract"){
+    gameState = "1930";
     noStroke();
     fill(41, 96, 72);
     rect(250, 125, windowWidth-500, windowHeight-250);
@@ -135,15 +136,23 @@ function mouseClicked(){
     text("1930. This year's winter was terrible. Horrendous blizzards and bitter", 300, windowHeight-250);
     text("coldness that reached -34°C.", 300, windowHeight-200);
     rect(1595, windowHeight/2-75, 150, 150);
-    wordState = "cycling";
   }
-  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && wordState === "cycling"){
-    gameState = "1930";
+  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1930"){
+    gameState = "1931";
     clear();
     background(27, 62, 47);
     fill(12, 28, 21);
     borders();
-    y += 5;
+    y += 1;
+    fill("white");
+  }
+  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1931"){
+    gameState = "1932";
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    y += 1;
     fill("white");
   }
 }
@@ -233,11 +242,13 @@ function prairieYearWords(){
   fill("white");
   rect(1595, windowHeight/2-75, 150, 150);
   
-  text(yearWords[0], 300, windowHeight-400);
-  text(yearWords[1], 300, windowHeight-350);
-  text(yearWords[2], 300, windowHeight-300);
-  text(yearWords[3], 300, windowHeight-250);
-  text(yearWords[4], 300, windowHeight-200);
+  if (gameState === "1931"){
+    text(yearWords[0], 300, windowHeight-400);
+    text(yearWords[1], 300, windowHeight-350);
+    text(yearWords[2], 300, windowHeight-300);
+    text(yearWords[3], 300, windowHeight-250);
+    text(yearWords[4], 300, windowHeight-200);
+  }
   if (y === yearWords.length+1){
     wordState = "";
     clear();
