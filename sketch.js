@@ -25,7 +25,7 @@ let maritimeButton;
 let ontqueButton;
 let provincesDone = [];
 let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "In 1928, the net farming income was $363 million dollars.", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
-let yearWords = ["1931. This year's winter was dry. Once the spring came, the droughts", "were unbearable. An abundance of dust storms ruined our land. The",  "summer was hot and dry with no rain. Our crops couldn't stand it. In", "addition to that, our lovely neighbours are moving away. I read in the", "papers that more and more folk are moving out of the prairies.", "1932. We had the worst infestation of grasshoppers I've ever seen! My papa told me that this is the worst grasshopper plague he's seen in over 50 years. Our wheat is selling for extremely low, only 26¢ per bushel.", "1933 to 1935", "1936", "1937", "1938", "1939"];
+let yearWords = ["1931. This year's winter was dry. Once the spring came, the droughts", "were unbearable. An abundance of dust storms ruined our land. The",  "summer was hot and dry with no rain. Our crops couldn't stand it. In", "addition to that, our lovely neighbours are moving away. I read in the", "papers that more and more folk are moving out of the prairies.", "1932. We had the worst infestation of grasshoppers I've ever seen! My", "papa told me that this is the worst grasshopper plague he's seen in", "over 50 years. Our wheat is selling for extremely low, only 26¢ per", "bushel.", "1933 to 1935. Times are getting harder. The winters have been", "unbelieveably severe. The summers have been extremely dry and", "we've had lots of droughts. It's been destroying our crops and our land. ", "1936. The weather here is still terribly awful, but I heard it's even", "worse in other provinces. Edmonton reached -45°C and froze cattle to", "death, and the summer in Winnipeg reached 42°C and wilted farmers'", "grain fields.", "1937. The papers said this has been the worst year in what they call", "the 'Palliser Triangle', which is where we are located in. We've had", "snowless winters with dangerously freezing temperatures. The spring", "and summer had no rain, which caused lots of dust storms, and", "Regina's prolonged heat reached 43°C! I heard on the radio that at", "least two-thirds of the farming population in Saskatchewan is", "destitute. I'm glad we are still doing just swell here.", "1938. The year started out decently well after the winter, we had", "good spring weather! But then the summer came and the hail didn't", "stop and neither did the 'grasshopper blizzards'. Once again our crops", "were destroyed.", "1939. I think the weather has finally subsided. I don't want to be too", "optimistic, but there were no major disasters this year! My sweet baby", "boy cried when he first saw rain, it startled him so."];
 // let bcWords = [];
 // let maritimeWords = [];
 // let ontqueWords = ["That's right, you live in Ontario.", "Quebec is a part of this catagory, but we'll focus on them later.", "You're a single man and you're unemployed.", "You're broke."];
@@ -45,11 +45,10 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   gameState = "title";
   background(27, 62, 47);
-  console.log(windowWidth);
-  console.log(windowHeight);
 }
 
 function draw() {
+  console.log(gameState);
   borders();
   if (gameState === "title"){
     buttons();
@@ -72,6 +71,24 @@ function draw() {
     prairiesIntro();
   }
   if (gameState === "1931"){
+    prairieYearWords();
+  }
+  else if (gameState === "1932"){
+    prairieYearWords();
+  }
+  else if (gameState === "1933to1935"){
+    prairieYearWords();
+  }
+  else if (gameState === "1936"){
+    prairieYearWords();
+  }
+  else if (gameState === "1937"){
+    prairieYearWords();
+  }
+  else if (gameState === "1938"){
+    prairieYearWords();
+  }
+  else if (gameState === "1939"){
     prairieYearWords();
   }
 }
@@ -138,22 +155,67 @@ function mouseClicked(){
     rect(1595, windowHeight/2-75, 150, 150);
   }
   if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1930"){
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    fill("white");
     gameState = "1931";
-    clear();
-    background(27, 62, 47);
-    fill(12, 28, 21);
-    borders();
-    y += 1;
-    fill("white");
   }
-  if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1931"){
-    gameState = "1932";
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1931"){
     clear();
     background(27, 62, 47);
     fill(12, 28, 21);
     borders();
-    y += 1;
     fill("white");
+    gameState = "1932";
+  }
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1932"){
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    fill("white");
+    gameState = "1933to1935";
+  }
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1933to1935"){
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    fill("white");
+    gameState = "1936";
+  }
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1936"){
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    fill("white");
+    gameState = "1937";
+  }
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1937"){
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    fill("white");
+    gameState = "1938";
+  }
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1938"){
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
+    fill("white");
+    gameState = "1939";
+  }
+  else if (mouseX < 1745 && mouseX > 1595 && mouseY < windowHeight/2+75 && mouseY > windowHeight/2-75 && gameState === "1939"){
+    gameState = "dialogue";
+    clear();
+    background(27, 62, 47);
+    fill(12, 28, 21);
+    borders();
   }
 }
 
@@ -243,14 +305,88 @@ function prairieYearWords(){
   rect(1595, windowHeight/2-75, 150, 150);
   
   if (gameState === "1931"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
     text(yearWords[0], 300, windowHeight-400);
     text(yearWords[1], 300, windowHeight-350);
     text(yearWords[2], 300, windowHeight-300);
     text(yearWords[3], 300, windowHeight-250);
     text(yearWords[4], 300, windowHeight-200);
   }
-  if (y === yearWords.length+1){
-    wordState = "";
-    clear();
+
+  else if (gameState === "1932"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[5], 300, windowHeight-350);
+    text(yearWords[6], 300, windowHeight-300);
+    text(yearWords[7], 300, windowHeight-250);
+    text(yearWords[8], 300, windowHeight-200);
+  }
+
+  else if (gameState === "1933to1935"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[9], 300, windowHeight-300);
+    text(yearWords[10], 300, windowHeight-250);
+    text(yearWords[11], 300, windowHeight-200);
+  }
+
+  else if (gameState === "1936"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[12], 300, windowHeight-350);
+    text(yearWords[13], 300, windowHeight-300);
+    text(yearWords[14], 300, windowHeight-250);
+    text(yearWords[15], 300, windowHeight-200);
+  }
+
+  else if (gameState === "1937"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[16], 300, windowHeight-500);
+    text(yearWords[17], 300, windowHeight-450);
+    text(yearWords[18], 300, windowHeight-400);
+    text(yearWords[19], 300, windowHeight-350);
+    text(yearWords[20], 300, windowHeight-300);
+    text(yearWords[21], 300, windowHeight-250);
+    text(yearWords[22], 300, windowHeight-200);
+  }
+  
+  else if (gameState === "1938"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[23], 300, windowHeight-350);
+    text(yearWords[24], 300, windowHeight-300);
+    text(yearWords[25], 300, windowHeight-250);
+    text(yearWords[26], 300, windowHeight-200);
+  }
+
+  else if (gameState === "1939"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(250, 125, windowWidth-500, windowHeight-250);
+    fill("white");
+    rect(1595, windowHeight/2-75, 150, 150);
+    text(yearWords[27], 300, windowHeight-300);
+    text(yearWords[28], 300, windowHeight-250);
+    text(yearWords[29], 300, windowHeight-200);
   }
 }
