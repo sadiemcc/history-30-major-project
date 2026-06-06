@@ -7,7 +7,7 @@
 
 const windowHeight = 957;
 const windowWidth = 1920;
-const BORDER_HEIGHT = 75
+const BORDER_HEIGHT = 75;
 let gameState = "title";
 let wordState = "";
 let font;
@@ -27,7 +27,7 @@ let provincesDone = [];
 let prairieWords = ["That's right, you live in the Prairies. Saskatchewan, specifically.", "You're a wheat farmer.", "This year, your harvest has been plentyful!", "In 1928, the net farming income was $363 million dollars.", "Unfortunately, you're not going to be able to have a good harvest for the...", "...next 10 years.", "Let's see what happened each year..."];
 let yearWords = ["1931. This year's winter was dry. Once the spring came, the droughts", "were unbearable. An abundance of dust storms ruined our land. The",  "summer was hot and dry with no rain. Our crops couldn't stand it. In", "addition to that, our lovely neighbours are moving away. I read in the", "papers that more and more folk are moving out of the prairies.", "1932. We had the worst infestation of grasshoppers I've ever seen! My", "papa told me that this is the worst grasshopper plague he's seen in", "over 50 years. Our wheat is selling for extremely low, only 26¢ per", "bushel.", "1933 to 1935. Times are getting harder. The winters have been", "unbelieveably severe. The summers have been extremely dry and", "we've had lots of droughts. It's been destroying our crops and our land. ", "1936. The weather here is still terribly awful, but I heard it's even", "worse in other provinces. Edmonton reached -45°C and froze cattle to", "death, and the summer in Winnipeg reached 42°C and wilted farmers'", "grain fields.", "1937. The papers said this has been the worst year in what they call", "the 'Palliser Triangle', which is where we are located in. We've had", "snowless winters with dangerously freezing temperatures. The spring", "and summer had no rain, which caused lots of dust storms, and", "Regina's prolonged heat reached 43°C! I heard on the radio that at", "least two-thirds of the farming population in Saskatchewan is", "destitute. I'm glad we are still doing just swell here.", "1938. The year started out decently well after the winter, we had", "good spring weather! But then the summer came and the hail didn't", "stop and neither did the 'grasshopper blizzards'. Once again our crops", "were destroyed.", "1939. I think the weather has finally subsided. I don't want to be too", "optimistic, but there were no major disasters this year! My sweet baby", "boy cried when he first saw rain, it startled him so."];
 let transitionWords = ["Well, isn't that terrible.", "The Great Depression impacted Saskatchewan farmers and their income.", "Let's read what someone had to say about the Great Depression..."];
-let journalWords = []
+let journalWords = [];
 let bennettWords = [];
 
 function preload(){
