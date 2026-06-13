@@ -39,6 +39,7 @@ function preload(){
   maritimeButton = loadImage("maritimes.png");
   titleCard = createImg("title-ezgif.com-resize.gif");
   playImage = loadImage("PLAY.png");
+  journalimg = loadImage("Untitled design.png");
 }
 
 function setup() {
@@ -90,6 +91,12 @@ function draw() {
   }
   else if (gameState === "1939"){
     prairieYearWords();
+  }
+  if (gameState === "dialogue"){
+    journal();
+  }
+  if (gameState === "showjournal"){
+    journal();
   }
 }
 
@@ -216,6 +223,10 @@ function mouseClicked(){
     background(27, 62, 47);
     fill(12, 28, 21);
     borders();
+    journal();
+  }
+  if (gameState === "dialogue" || gameState === "showjournal"){
+    journal();
   }
 }
 
@@ -388,5 +399,18 @@ function prairieYearWords(){
     text(yearWords[27], 300, windowHeight-300);
     text(yearWords[28], 300, windowHeight-250);
     text(yearWords[29], 300, windowHeight-200);
+  }
+}
+
+function journal(){
+  if (gameState === "dialogue"){
+    noStroke();
+    fill(41, 96, 72);
+    rect(25, windowHeight-200, windowWidth-50, 100);
+    fill("white");
+    text("What a decade. Let's see some quick facts about it.", 50, windowHeight-175);
+  }
+  else if (gameState === "showjournal"){
+    image(journalimg, windowWidth/2, windowHeight/2);
   }
 }
