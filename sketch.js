@@ -95,8 +95,8 @@ function draw() {
   if (gameState === "dialogue"){
     journal();
   }
-  if (gameState === "showjournal"){
-    journal();
+  if (gameState === "dialogue" && mouseIsPressed === true){
+    showJournal();
   }
 }
 
@@ -225,8 +225,11 @@ function mouseClicked(){
     borders();
     journal();
   }
-  if (gameState === "dialogue" || gameState === "showjournal"){
-    journal();
+  if (gameState === "dialogue" && mouseIsPressed === true){
+    showJournal();
+  }
+  if (gameState === "showjournal"){
+
   }
 }
 
@@ -410,7 +413,23 @@ function journal(){
     fill("white");
     text("What a decade. Let's see some quick facts about it.", 50, windowHeight-175);
   }
-  else if (gameState === "showjournal"){
-    image(journalimg, windowWidth/2, windowHeight/2);
-  }
+}
+
+function showJournal(){
+  clear();
+  background(27, 62, 47);
+  fill(12, 28, 21);
+  borders();
+  gameState = "showjournal";
+  imageMode(CENTER);
+  image(journalimg, windowWidth/2, windowHeight/2);
+}
+
+function bennettStuff(){
+  clear();
+  background(27, 62, 47);
+  fill(12, 28, 21);
+  borders();
+  gameState = "bennett";
+
 }
